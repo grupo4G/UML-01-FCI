@@ -27,14 +27,10 @@
 
 # Autores
 
-* Aluno 1
-* Aluno 2
-* Aluno 3
-* Aluno 4
-* Aluno 5
-* Aluno 6
-* Aluno 7
-* Aluno 8
+* Aluno 1 : Lendy Naiara Carpio Pacheco - 10428525
+* Aluno 2 : Rafael de Souza Alves de Lima - 10425819
+* Aluno 3 : Daniela Pereira da Silva - 10410906
+* Aluno 4 : Caio Henrique Santos Carvalho - 10425408
 
 
 # Descrição do Projeto
