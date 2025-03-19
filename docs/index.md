@@ -36,11 +36,12 @@
 
 # Descrição do Projeto
 
-*&lt;O projeto visa garantir uma solução tecnológica eficiente e inovadora para operações militares, incluindo funcionalidades avançadas de monitoramento, navegação e segurança.
-&gt;*
+O projeto visa garantir uma solução tecnológica eficiente e inovadora para operações militares, incluindo funcionalidades avançadas de monitoramento, navegação e segurança.
+
 
 # Análise de Requisitos Funcionais e Não-Funcionais
  **Requisitos Funcionais**
+
 Os requisitos funcionais definem as principais funcionalidades do sistema:
 * **Gerenciamento da Frota:** Permitir o monitoramento e controle simultâneo de múltiplos drones, exibindo status e telemetria em tempo real.
 * **Operação Remota e Autônoma:** Controlar drones manualmente via interface ou permitir operação autônoma por meio de inteligência artificial.
@@ -50,6 +51,7 @@ Os requisitos funcionais definem as principais funcionalidades do sistema:
 * **Segurança Avançada:** Implementar autenticação multifator e monitoramento contínuo para prevenir acessos não autorizados.
 
 **Requisitos Não Funcionais**
+
 Os requisitos não funcionais garantem qualidade e confiabilidade do sistema:
 * **Desempenho:** O sistema deve processar dados e comandos dos drones em tempo real.
 * **Segurança:** Implementação de criptografia avançada e autenticação robusta.
