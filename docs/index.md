@@ -3,7 +3,8 @@
 
 
 <font size="+12"><center>
-*&lt;Drone Bélico 🛩️&gt;*
+
+**Drone Bélico 🛩️**
 </center></font>
 
 >*Observação 1: A estrutura inicial deste documento é só um exemplo. O seu grupo deverá alterar esta estrutura de acordo com o que está sendo solicitado na disciplina.*
@@ -39,7 +40,22 @@
 &gt;*
 
 # Análise de Requisitos Funcionais e Não-Funcionais
-*&lt;Descrição dos requisitos&gt;*
+ **Requisitos Funcionais**
+Os requisitos funcionais definem as principais funcionalidades do sistema:
+* **Gerenciamento da Frota:** Permitir o monitoramento e controle simultâneo de múltiplos drones, exibindo status e telemetria em tempo real.
+* **Operação Remota e Autônoma:** Controlar drones manualmente via interface ou permitir operação autônoma por meio de inteligência artificial.
+* **Navegação Inteligente:** Utilizar sensores como LIDAR, GPS e câmeras para mapear o ambiente, evitar obstáculos e ajustar rotas dinamicamente.
+* **Comunicação Segura e Estável:** Garantir conexão confiável entre drones e servidores, com protocolos seguros e redundância para evitar falhas.
+* **Registro e Auditoria:** Armazenar dados de missões, trajetórias e eventos críticos com criptografia e logs de auditoria.
+* **Segurança Avançada:** Implementar autenticação multifator e monitoramento contínuo para prevenir acessos não autorizados.
+
+**Requisitos Não Funcionais**
+Os requisitos não funcionais garantem qualidade e confiabilidade do sistema:
+* **Desempenho:** O sistema deve processar dados e comandos dos drones em tempo real.
+* **Segurança:** Implementação de criptografia avançada e autenticação robusta.
+* **Disponibilidade:** Infraestrutura distribuída para alta disponibilidade e failover automático.
+* **Usabilidade:** Interface intuitiva para operação eficiente por militares e técnicos.
+
 
 # Diagrama de Atividades
 
