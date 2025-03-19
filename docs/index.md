@@ -35,7 +35,8 @@
 
 # Descrição do Projeto
 
-*&lt;Introdução do projeto&gt;*
+*&lt;O projeto visa garantir uma solução tecnológica eficiente e inovadora para operações militares, incluindo funcionalidades avançadas de monitoramento, navegação e segurança.
+&gt;*
 
 # Análise de Requisitos Funcionais e Não-Funcionais
 *&lt;Descrição dos requisitos&gt;*
