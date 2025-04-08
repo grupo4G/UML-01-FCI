@@ -61,13 +61,11 @@ Os requisitos não funcionais garantem qualidade e confiabilidade do sistema:
 
 # Diagrama de Atividades
 
+![Diagrama de Atividades](documentos/imagem/Diagrama.png)
+
 *&lt;Diagrama para visualizer as pessoas das áreas de negócios e de desenvolvimento de uma organização para entender o processo e comportamento.&gt;*
 
 # Diagrama de Casos de Uso
-
-![Diagrama de Atividades](../imagem/Diagrama.png)
-
-
 
 *&lt;Diagrama para visualizar o comportamento dos atores&gt;*
 
