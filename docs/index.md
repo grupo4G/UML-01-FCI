@@ -65,7 +65,7 @@ Os requisitos não funcionais garantem qualidade e confiabilidade do sistema:
 
 # Diagrama de Casos de Uso
 
-![Diagrama de Atividades](image.png)
+![Diagrama de Atividades](imagem.png)
 
 
 *&lt;Diagrama para visualizar o comportamento dos atores&gt;*
