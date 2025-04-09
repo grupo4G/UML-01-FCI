@@ -61,7 +61,7 @@ Os requisitos não funcionais garantem qualidade e confiabilidade do sistema:
 
 # Diagrama de Atividades
 
-![Diagrama de Atividades](docs/img/Diagrama.png)
+![Diagrama de Atividades](https://github.com/grupo4G/UML-01-FCI/blob/2957cfea5da33d472d75896125ed1a046b479945/docs/img/Diagrama.png)
 
 *&lt;Diagrama para visualizer as pessoas das áreas de negócios e de desenvolvimento de uma organização para entender o processo e comportamento.&gt;*
 
