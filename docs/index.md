@@ -71,6 +71,46 @@ Os requisitos não funcionais garantem qualidade e confiabilidade do sistema:
 
 # Descrição dos Casos de Uso
 
+## Caso de Uso: Autenticar Acesso ao Sistema
+
+| Campo                  | Descrição                                                                 |
+|------------------------|---------------------------------------------------------------------------|
+| **Nome do Caso de Uso** | Autenticar Acesso ao Sistema                                              |
+| **Ator Principal**      | Operador Militar                                                          |
+| **Atores Secundários**  | Sistema de Autenticação                                                   |
+| **Resumo**              | Este caso de uso descreve as etapas para autenticar o operador no sistema, garantindo acesso seguro. |
+| **Pré-condições**       | O operador precisa estar previamente cadastrado.                          |
+| **Pós-condições**       | O operador terá acesso autorizado ao sistema.                             |
+
+### Fluxo Principal
+
+| Ações do Ator                                | Ações do Sistema                                                     |
+|---------------------------------------------|----------------------------------------------------------------------|
+| 1. Operador acessa a interface de login      | 2. Sistema solicita autenticação com senha ou biometria             |
+| 3. Operador insere suas credenciais          | 4. Sistema valida os dados                                          |
+|                                             | 5. Caso válidos, acesso é concedido ao operador                     |
+
+### Fluxos Alternativos
+
+| Código | Descrição                                                                 |
+|--------|---------------------------------------------------------------------------|
+| A1     | Se o operador errar as credenciais, o sistema registra a tentativa mal sucedida. |
+| A2     | Após múltiplas tentativas incorretas, o sistema bloqueia o acesso do operador.    |
+
+### Fluxos de Exceção
+
+| Código | Descrição                                                                 |
+|--------|---------------------------------------------------------------------------|
+| E1     | Falha de comunicação com o servidor de autenticação impede o login.       |
+| E2     | Biometria inválida ou erro no segundo fator de autenticação.              |
+
+### Restrições e Validações
+
+- O operador deve possuir cadastro válido.
+- O sistema deve seguir as políticas de autenticação segura (biometria, múltiplos fatores).
+- Registro de logs para cada tentativa de acesso deve ser mantido.
+
+
 *&lt;Descrição do comportamento entre os atores/resquisitos&gt;*
 
 # Diagrama de Sequência
