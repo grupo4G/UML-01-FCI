@@ -571,6 +571,276 @@ Os requisitos não funcionais garantem qualidade e confiabilidade do sistema:
 | ***RESTRIÇÕES E VALIDAÇÕES*** |- Logs devem ser imutáveis após o armazenamento.<br>- A integridade dos dados deve ser verificada automaticamente.<br>- O armazenamento deve ser criptografado e com controle de acesso.<br>- O sistema deve garantir backup automático dos registros. |
 
 
+## Caso de Uso: Armazenar Dados da Missão
+
+| Campo                   | Armazenar Dados da Missão                                                    |
+|-------------------------|-------------------------------------------------------------------------------|
+| **Nome do Caso de Uso** | Armazenar Dados da Missão                                                    |
+| **Ator Principal**      | Sistema de Banco de Dados                                                     |
+| **Atores Secundários**  | —                                                                             |
+| **Resumo**              | Este caso de uso descreve como o sistema de banco de dados armazena com segurança as informações relacionadas às missões, garantindo persistência, integridade e disponibilidade para futuras consultas. |
+| **Pré-condições**       | A missão deve estar planejada ou em execução, com dados prontos para serem armazenados. |
+| **Pós-condições**       | Os dados da missão são salvos de forma segura no banco de dados.             |
+| ***FLUXO PRINCIPAL***   |   
+| Ações do Ator                                  | Ações do Sistema                                                            |
+| 1. Banco de dados recebe dados da missão       | 2. Sistema valida o conteúdo e formato dos dados                            |
+| 3. Banco de dados inicia rotina de gravação    | 4. Sistema armazena os dados no repositório de missão                       |
+| 5. Banco de dados atualiza os registros        | 6. Sistema confirma armazenamento e disponibiliza os dados para consulta    |
+| ***FLUXOS ALTERNATIVOS*** |
+| Código | Descrição                                                                 |
+| A1     | Dados parciais são salvos temporariamente até a conclusão da missão.      |
+| A2     | Dados redundantes são sincronizados com réplicas para garantir alta disponibilidade. |
+| ***FLUXOS DE EXCEÇÃO*** |
+| Código | Descrição                                                                 |
+| E1     | Falha no disco impede o salvamento dos dados.                            |
+| E2     | Dados inconsistentes são rejeitados pelo sistema.                        |
+| ***RESTRIÇÕES E VALIDAÇÕES*** |- Os dados da missão devem estar completos e consistentes antes do armazenamento.<br>- A integridade dos dados deve ser validada com checksums.<br>- O acesso ao repositório de dados deve ser restrito a usuários autorizados.<br>- Backups periódicos devem ser realizados automaticamente. |
+
+
+## Caso de Uso: Abortar Missão
+
+| Campo                   | Abortar Missão                                                               |
+|-------------------------|-------------------------------------------------------------------------------|
+| **Nome do Caso de Uso** | Abortar Missão                                                               |
+| **Ator Principal**      | Operador Militar                                                             |
+| **Atores Secundários**  | Servidor Central                                                             |
+| **Resumo**              | Este caso de uso descreve como o operador militar pode interromper uma missão em andamento por motivos estratégicos, técnicos ou de segurança. |
+| **Pré-condições**       | A missão deve estar em andamento e o operador deve possuir permissão para intervir. |
+| **Pós-condições**       | A missão é encerrada imediatamente e os drones envolvidos retornam ou executam protocolos de segurança. |
+| ***FLUXO PRINCIPAL***   |   
+| Ações do Ator                              | Ações do Sistema                                                              |
+| 1. Operador acessa o painel da missão      | 2. Sistema exibe status atual da missão em tempo real                         |
+| 3. Operador seleciona a opção "Abortar"    | 4. Sistema solicita confirmação da operação                                   |
+| 5. Operador confirma o aborto da missão    | 6. Sistema interrompe a missão e envia comandos aos drones                    |
+|                                            | 7. Sistema registra o aborto nos logs e atualiza o status da missão           |
+| ***FLUXOS ALTERNATIVOS*** |
+| Código | Descrição                                                                 |
+| A1     | O operador pode escolher abortar apenas parte da missão (ex: um drone específico). |
+| A2     | A missão é pausada para avaliação, em vez de abortada completamente.     |
+| ***FLUXOS DE EXCEÇÃO*** |
+| Código | Descrição                                                                 |
+| E1     | Falha na comunicação impede o envio dos comandos de aborto.              |
+| E2     | O sistema rejeita o aborto por inconsistência no status da missão.       |
+| ***RESTRIÇÕES E VALIDAÇÕES*** |- Apenas operadores autorizados podem abortar missões.<br>- O sistema deve solicitar autenticação reforçada antes da confirmação.<br>- O aborto deve ser registrado com data, hora, operador e motivo.<br>- Todos os drones devem receber confirmação de retorno seguro ou execução de protocolo de emergência. |
+
+
+## Caso de Uso: Validar Biometria
+
+| Campo                   | Validar Biometria                                                             |
+|-------------------------|--------------------------------------------------------------------------------|
+| **Nome do Caso de Uso** | Validar Biometria                                                             |
+| **Ator Principal**      | Sistema de Autenticação                                                       |
+| **Atores Secundários**  | —                                                                             |
+| **Resumo**              | Este caso de uso descreve como o sistema de autenticação realiza a verificação biométrica do operador para garantir a identidade e segurança no acesso ao sistema. |
+| **Pré-condições**       | O operador precisa estar previamente cadastrado com seus dados biométricos.  |
+| **Pós-condições**       | A identidade biométrica do operador é validada com sucesso ou negada com justificativa. |
+| ***FLUXO PRINCIPAL***   |   
+| Ações do Ator                                | Ações do Sistema                                                             |
+| —                                             | 1. Sistema solicita leitura biométrica                                       |
+| —                                             | 2. Sistema capta os dados biométricos do operador                           |
+| —                                             | 3. Sistema compara os dados com os registros armazenados                    |
+| —                                             | 4. Sistema valida a correspondência biométrica                              |
+| —                                             | 5. Sistema autoriza a próxima etapa do acesso, se a biometria for válida    |
+| ***FLUXOS ALTERNATIVOS*** |
+| Código | Descrição                                                                 |
+| A1     | Se o operador apresentar dificuldade na leitura, o sistema solicita nova tentativa. |
+| A2     | O sistema pode solicitar autenticação por outro fator (ex: senha) em caso de falha leve. |
+| ***FLUXOS DE EXCEÇÃO*** |
+| Código | Descrição                                                                 |
+| E1     | Leitor biométrico apresenta falha de hardware.                          |
+| E2     | Dados biométricos não correspondem aos armazenados.                     |
+| ***RESTRIÇÕES E VALIDAÇÕES*** |- Dados biométricos devem estar criptografados.<br>- O sistema deve validar os dados em tempo real.<br>- Máximas tentativas consecutivas devem ser limitadas.<br>- Todas as tentativas de autenticação devem ser registradas em log com data e hora. |
+
+
+## Caso de Uso: Validar Segundo Identificador de Autenticação
+
+| Campo                   | Validar Segundo Identificador de Autenticação                                 |
+|-------------------------|--------------------------------------------------------------------------------|
+| **Nome do Caso de Uso** | Validar Segundo Identificador de Autenticação                                 |
+| **Ator Principal**      | Sistema de Autenticação                                                       |
+| **Atores Secundários**  | —                                                                             |
+| **Resumo**              | Este caso de uso descreve como o sistema de autenticação realiza a verificação do segundo fator no processo de autenticação multifator, garantindo uma camada adicional de segurança no acesso ao sistema. |
+| **Pré-condições**       | O operador já completou a primeira etapa da autenticação (ex: senha ou biometria). |
+| **Pós-condições**       | O segundo fator de autenticação é validado com sucesso ou o acesso é negado.  |
+| ***FLUXO PRINCIPAL***   |   
+| Ações do Ator                                           | Ações do Sistema                                                              |
+| 1. Operador fornece o segundo fator (ex: token MFA)     | 2. Sistema recebe e valida o segundo fator                                    |
+|                                                         | 3. Sistema compara com o valor esperado (ex: gerado por app autenticador)     |
+|                                                         | 4. Sistema confirma a autenticidade e validade do segundo fator               |
+|                                                         | 5. Sistema autoriza o acesso completo caso a validação seja bem-sucedida     |
+| ***FLUXOS ALTERNATIVOS*** |
+| Código | Descrição                                                                 |
+| A1     | Caso o segundo fator esteja expirado, o sistema solicita nova tentativa.  |
+| A2     | O operador pode optar por outro método de MFA previamente configurado.    |
+| ***FLUXOS DE EXCEÇÃO*** |
+| Código | Descrição                                                                 |
+| E1     | Código inválido ou fora do tempo de validade.                            |
+| E2     | Falha de comunicação com o serviço de autenticação multifator.           |
+| ***RESTRIÇÕES E VALIDAÇÕES*** |- O segundo fator deve ser temporário e único (ex: TOTP).<br>- A autenticação multifator deve estar habilitada para o operador.<br>- O sistema deve registrar todas as tentativas de MFA, com hora e resultado.<br>- O operador deve ter opções alternativas de MFA em caso de falha (backup codes, cartão físico, etc.). |
+
+
+## Caso de Uso: Autorizar e Negar Acesso
+
+| Campo                   | Autorizar e Negar Acesso                                                     |
+|-------------------------|------------------------------------------------------------------------------|
+| **Nome do Caso de Uso** | Autorizar e Negar Acesso                                                     |
+| **Ator Principal**      | Sistema de Autenticação                                                     |
+| **Atores Secundários**  | —                                                                            |
+| **Resumo**              | Este caso de uso descreve como o sistema de autenticação toma a decisão de conceder ou negar o acesso ao sistema com base na validação das credenciais e dos fatores de autenticação fornecidos pelo operador. |
+| **Pré-condições**       | O operador deve fornecer credenciais válidas e, se exigido, autenticação multifator. |
+| **Pós-condições**       | O operador recebe autorização para acessar o sistema ou tem seu acesso negado com registro da tentativa. |
+| ***FLUXO PRINCIPAL***   |   
+| Ações do Ator                                      | Ações do Sistema                                                              |
+| —                                                  | 1. Sistema verifica credenciais fornecidas pelo operador                      |
+| —                                                  | 2. Sistema valida os fatores de autenticação                                  |
+| —                                                  | 3. Sistema avalia permissões e políticas de segurança                         |
+| —                                                  | 4. Sistema autoriza o acesso se todas as condições forem atendidas           |
+| —                                                  | 5. Sistema direciona o operador à interface principal                         |
+| ***FLUXOS ALTERNATIVOS*** |
+| Código | Descrição                                                                 |
+| A1     | Caso o operador tenha permissões limitadas, o sistema libera acesso parcial. |
+| A2     | A autorização pode exigir confirmação adicional por parte de um supervisor. |
+| ***FLUXOS DE EXCEÇÃO*** |
+| Código | Descrição                                                                 |
+| E1     | Credenciais inválidas ou inconsistentes impedem a autorização.            |
+| E2     | Sistema detecta tentativa suspeita e nega acesso imediatamente.           |
+| ***RESTRIÇÕES E VALIDAÇÕES*** |- O sistema deve seguir políticas de controle de acesso baseadas em função (RBAC).<br>- Logs de todas as autorizações e negações devem ser mantidos.<br>- Tentativas de acesso negado devem gerar alertas após repetição.<br>- A autorização deve considerar horário, local e dispositivo de acesso como fatores condicionantes. |
+
+
+## Caso de Uso: Configurar Biometria e Multifator do Operador
+
+| Campo                   | Configurar Biometria e Multifator do Operador                                 |
+|-------------------------|--------------------------------------------------------------------------------|
+| **Nome do Caso de Uso** | Configurar Biometria e Multifator do Operador                                 |
+| **Ator Principal**      | Administrador do Sistema                                                       |
+| **Atores Secundários**  | —                                                                              |
+| **Resumo**              | Este caso de uso descreve como o administrador cadastra ou atualiza os dados biométricos e configura o segundo fator de autenticação para operadores militares. |
+| **Pré-condições**       | O operador já deve estar cadastrado no sistema.                               |
+| **Pós-condições**       | Dados biométricos e método multifator configurados com sucesso para o operador.|
+| ***FLUXO PRINCIPAL***   |   
+| Ações do Ator                                       | Ações do Sistema                                                            |
+| 1. Administrador acessa painel de operadores        | 2. Sistema exibe lista de operadores cadastrados                            |
+| 3. Administrador seleciona um operador              | 4. Sistema abre detalhes de autenticação do operador                        |
+| 5. Administrador escolhe configurar biometria       | 6. Sistema solicita captura biométrica                                      |
+| 7. Administrador realiza a captura                  | 7. Sistema armazena os dados com segurança                                  |
+| 8. Administrador seleciona e ativa método multifator| 9. Sistema vincula o método escolhido ao operador                           |
+|***FLUXOS ALTERNATIVOS*** |
+| Código | Descrição                                                                          |
+| A1     | Administrador pode configurar apenas um dos métodos (biometria ou multifator).     |
+| A2     | Caso o operador já possua dados configurados, o sistema permite sobrescrever.      |
+|***FLUXOS DE EXCEÇÃO*** |
+| Código | Descrição                                                                          |
+| E1     | Falha na captura biométrica.                                                       |
+| E2     | Falha de comunicação com serviço de autenticação multifator.                       |
+|***RESTRIÇÕES E VALIDAÇÕES*** |- Os dados biométricos devem ser criptografados.<br>- A configuração deve ser registrada em log de auditoria.<br>- Somente administradores autenticados podem acessar essa funcionalidade.<br>- O sistema deve validar a integridade da configuração ao final do processo. |
+
+
+## Caso de Uso: Cadastrar Operador Militar
+
+| Campo                   | Cadastrar Operador Militar                                                 |
+|-------------------------|----------------------------------------------------------------------------|
+| **Nome do Caso de Uso** | Cadastrar Operador Militar                                                 |
+| **Ator Principal**      | Administrador do Sistema                                                   |
+| **Atores Secundários**  | —                                                                          |
+| **Resumo**              | Este caso de uso descreve o processo de cadastramento de um novo operador militar no sistema, incluindo a definição de credenciais básicas de acesso. |
+| **Pré-condições**       | O administrador precisa estar autenticado no sistema.                      |
+| **Pós-condições**       | O operador militar estará registrado no sistema com um perfil de acesso definido. |
+| ***FLUXO PRINCIPAL***   |   
+| Ações do Ator                                 | Ações do Sistema                                                     |
+| 1. Administrador acessa a funcionalidade de cadastro de operador | 2. Sistema apresenta formulário de cadastro                           |
+| 3. Administrador preenche os dados do operador (nome, ID, função, etc.) | 4. Sistema valida os dados fornecidos                              |
+| 5. Administrador define as credenciais iniciais de acesso       | 6. Sistema registra o operador e salva no banco de dados            |
+| 7. Administrador confirma o cadastro                            | 8. Sistema emite mensagem de sucesso e gera log do evento           |
+|***FLUXOS ALTERNATIVOS*** |
+| Código | Descrição                                                                 |
+| A1     | Administrador opta por cadastrar outro operador após finalização do atual.|
+| A2     | Administrador agenda configuração de autenticação biométrica posteriormente.|
+|***FLUXOS DE EXCEÇÃO*** |
+| Código | Descrição                                                                 |
+| E1     | Dados obrigatórios ausentes ou inválidos.                                 |
+| E2     | Falha na comunicação com o banco de dados.                                |
+|***RESTRIÇÕES E VALIDAÇÕES*** |- Campos obrigatórios: nome completo, identificação militar, função.<br>- Cada operador deve ter um identificador único.<br>- O cadastro deve ser registrado no log de auditoria.<br>- Somente administradores com permissão podem acessar essa funcionalidade. |
+
+
+## Caso de Uso: Gerenciar Permissões de Acesso
+
+| Campo                   | Gerenciar Permissões de Acesso                                            |
+|-------------------------|---------------------------------------------------------------------------|
+| **Nome do Caso de Uso** | Gerenciar Permissões de Acesso                                            |
+| **Ator Principal**      | Administrador do Sistema                                                  |
+| **Atores Secundários**  | —                                                                         |
+| **Resumo**              | Este caso de uso descreve como o administrador define, altera ou revoga permissões de acesso aos diferentes módulos e funcionalidades do sistema para operadores militares. |
+| **Pré-condições**       | O administrador deve estar autenticado no sistema com privilégios adequados. |
+| **Pós-condições**       | As permissões do operador são atualizadas e salvas no sistema.            |
+| ***FLUXO PRINCIPAL***   |   
+| Ações do Ator                                   | Ações do Sistema                                                     |
+| 1. Administrador acessa a interface de gerenciamento de permissões | 2. Sistema exibe a lista de operadores cadastrados                    |
+| 3. Administrador seleciona o operador desejado                  | 4. Sistema exibe permissões atuais e opções de modificação            |
+| 5. Administrador define ou altera permissões                   | 6. Sistema valida as alterações                                       |
+| 7. Administrador confirma a atualização                        | 8. Sistema aplica as novas permissões e gera log do evento           |
+| ***FLUXOS ALTERNATIVOS*** |
+| Código | Descrição                                                                 |
+| A1     | Administrador revoga todas as permissões de um operador temporariamente. |
+| A2     | Permissões são herdadas de um perfil ou função padrão.                   |
+| ***FLUXOS DE EXCEÇÃO*** |
+| Código | Descrição                                                                 |
+| E1     | Tentativa de atribuir permissão inválida ou inexistente.                 |
+| E2     | Falha de comunicação com o banco de dados ao salvar alterações.          |
+| ***RESTRIÇÕES E VALIDAÇÕES*** |- Apenas administradores com privilégios completos podem gerenciar permissões.<br>- Cada alteração deve ser registrada em log de auditoria.<br>- O sistema deve impedir configurações de permissões conflitantes ou inseguras. |
+
+
+## Caso de Uso: Desbloquear Operador após Bloqueio
+
+| Campo                   | Desbloquear Operador após Bloqueio                                       |
+|-------------------------|---------------------------------------------------------------------------|
+| **Nome do Caso de Uso** | Desbloquear Operador após Bloqueio                                       |
+| **Ator Principal**      | Administrador do Sistema                                                  |
+| **Atores Secundários**  | —                                                                         |
+| **Resumo**              | Este caso de uso descreve como o administrador desbloqueia o acesso de um operador militar que foi previamente bloqueado após múltiplas tentativas de autenticação mal sucedidas. |
+| **Pré-condições**       | O operador deve estar bloqueado e o administrador autenticado no sistema. |
+| **Pós-condições**       | O operador tem seu acesso restaurado ao sistema.                         |
+| ***FLUXO PRINCIPAL***   |   
+| Ações do Ator                                   | Ações do Sistema                                                     |
+| 1. Administrador acessa a seção de gerenciamento de operadores | 2. Sistema exibe a lista de operadores bloqueados                     |
+| 3. Administrador seleciona o operador a ser desbloqueado       | 4. Sistema exibe os dados do operador e o motivo do bloqueio          |
+| 5. Administrador confirma o desbloqueio                        | 6. Sistema restaura o acesso e atualiza o status do operador          |
+| 7. Administrador recebe confirmação visual                     | 8. Sistema registra o evento no log de auditoria                      |
+| ***FLUXOS ALTERNATIVOS*** |
+| Código | Descrição                                                                 |
+| A1     | Administrador agenda o desbloqueio automático para um horário específico. |
+| A2     | Administrador exige redefinição de senha antes do desbloqueio.            |
+| ***FLUXOS DE EXCEÇÃO*** |
+| Código | Descrição                                                                 |
+| E1     | Falha na comunicação com o sistema de autenticação.                      |
+| E2     | O operador selecionado não está mais bloqueado.                          |
+| ***RESTRIÇÕES E VALIDAÇÕES*** |- Apenas administradores com permissão elevada podem desbloquear operadores.<br>- O desbloqueio deve ser registrado com data, hora e motivo.<br>- O sistema pode exigir redefinição de autenticação após desbloqueio como medida de segurança. |
+
+
+## Caso de Uso: Acessar Histórico de Missões
+
+| Campo                   | Acessar Histórico de Missões                                              |
+|-------------------------|---------------------------------------------------------------------------|
+| **Nome do Caso de Uso** | Acessar Histórico de Missões                                              |
+| **Ator Principal**      | Administrador do Sistema                                                  |
+| **Atores Secundários**  | —                                                                         |
+| **Resumo**              | Este caso de uso descreve como o administrador acessa o histórico completo de todas as missões registradas no sistema, com possibilidade de auditoria e análise. |
+| **Pré-condições**       | O administrador deve estar autenticado com permissão de nível elevado.    |
+| **Pós-condições**       | O histórico de missões é exibido com todos os registros disponíveis para consulta. |
+| ***FLUXO PRINCIPAL***   |   
+| Ações do Ator                                 | Ações do Sistema                                                     |
+| 1. Administrador acessa o módulo de missões   | 2. Sistema apresenta a opção de histórico completo de missões        |
+| 3. Administrador seleciona a opção desejada   | 4. Sistema recupera e exibe a lista de todas as missões registradas  |
+| 5. Administrador escolhe uma missão para consulta | 6. Sistema exibe os detalhes da missão, incluindo status e relatórios gerados |
+| ***FLUXOS ALTERNATIVOS*** |
+| Código | Descrição                                                                 |
+| A1     | Administrador utiliza filtros para refinar a busca (data, operador, status).|
+| A2     | Administrador exporta histórico para fins de auditoria externa.           |
+| ***FLUXOS DE EXCEÇÃO*** |
+| Código | Descrição                                                                 |
+| E1     | Erro na recuperação do histórico por falha no banco de dados.             |
+| E2     | O histórico contém registros corrompidos ou inacessíveis.                 |
+| ***RESTRIÇÕES E VALIDAÇÕES*** |- O acesso ao histórico deve ser registrado em log de auditoria.<br>- Apenas administradores com privilégios podem acessar todas as missões, inclusive confidenciais.<br>- Dados devem estar protegidos conforme as diretrizes de segurança do sistema. |
+
 
 # Diagrama de Sequência
 
