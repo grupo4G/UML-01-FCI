@@ -124,6 +124,33 @@ Os requisitos não funcionais garantem qualidade e confiabilidade do sistema:
 | ***RESTRIÇÕES E VALIDAÇÕES*** |- O sistema deve registrar todas as tentativas de autenticação.<br>- Deve haver um número máximo de tentativas permitido (ex: 3).<br>- O bloqueio deve ser reversível apenas por administradores com credenciais válidas.<br>- Notificações devem ser geradas para administradores. |
 
 
+## Caso de Uso: Alterar Senha
+
+| Campo                   | Alterar Senha                                                                   |
+|-------------------------|----------------------------------------------------------------------------------|
+| **Nome do Caso de Uso** | Alterar Senha                                                                   |
+| **Ator Principal**      | Operador Militar                                                                |
+| **Atores Secundários**  | Sistema de Autenticação                                                         |
+| **Resumo**              | Este caso de uso descreve o processo pelo qual um operador militar altera sua senha de acesso ao sistema. |
+| **Pré-condições**       | O operador deve estar autenticado no sistema.                                   |
+| **Pós-condições**       | A nova senha é salva e utilizada nas próximas autenticações.                    |
+| ***FLUXO PRINCIPAL***   |   
+| Ações do Ator                          | Ações do Sistema                                                             |
+| 1. Acessa a opção de alterar senha     | 2. Solicita senha atual e nova senha                                         |
+| 3. Informa senha atual e nova senha    | 4. Valida a senha atual e verifica requisitos da nova senha                  |
+|                                       | 5. Atualiza a senha no sistema e confirma alteração                          |
+| ***FLUXOS ALTERNATIVOS*** |
+| Código | Descrição                                                                 |
+| A1     | O sistema pode solicitar confirmação da nova senha digitada.              |
+| A2     | O operador pode cancelar a operação antes da confirmação final.           |
+| ***FLUXOS DE EXCEÇÃO*** |
+| Código | Descrição                                                                 |
+| E1     | A senha atual informada está incorreta.                                    |
+| E2     | A nova senha não atende aos critérios mínimos de segurança.               |
+| E3     | Erro de comunicação impede a atualização da senha no banco de dados.      |
+| ***RESTRIÇÕES E VALIDAÇÕES*** |- A nova senha deve seguir as políticas de segurança (mínimo de caracteres, caracteres especiais, etc).<br>- O sistema deve validar a senha atual antes de permitir a alteração.<br>- Deve ser registrada uma notificação de alteração de senha para o operador.<br>- Todas as alterações devem ser registradas em log para auditoria. |
+
+
 # Diagrama de Sequência
 
 *&lt;Diagrama de ordem e interação dos objetos&gt;*
