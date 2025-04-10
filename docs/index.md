@@ -97,7 +97,32 @@ Os requisitos não funcionais garantem qualidade e confiabilidade do sistema:
 |***RESTRIÇÕES E VALIDAÇÕES*** |- O operador deve possuir cadastro válido.<br>- O sistema deve seguir as políticas de autenticação segura (biometria, múltiplos fatores).<br>- Registro de logs para cada tentativa de acesso deve ser mantido.|
 
 
-*&lt;Descrição do comportamento entre os atores/resquisitos&gt;*
+## Caso de Uso: Bloquear Sistema após Tentativas de Erro
+
+| Campo                   | Bloquear Sistema após Tentativas de Erro                                       |
+|-------------------------|---------------------------------------------------------------------------------|
+| **Nome do Caso de Uso** | Bloquear Sistema após Tentativas de Erro                                       |
+| **Ator Principal**      | Sistema de Autenticação                                                         |
+| **Atores Secundários**  | Operador Militar                                                                |
+| **Resumo**              | Este caso de uso descreve o bloqueio automático do sistema após múltiplas tentativas de autenticação mal sucedidas, garantindo a segurança do acesso. |
+| **Pré-condições**       | O operador deve ter tentado autenticar-se várias vezes com falha.               |
+| **Pós-condições**       | O acesso do operador é temporariamente bloqueado até que seja desbloqueado por um administrador. |
+| ***FLUXO PRINCIPAL***   |   
+| Ações do Ator                          | Ações do Sistema                                                             |
+| -                                     | 1. Detecta número excessivo de tentativas mal sucedidas                      |
+| -                                     | 2. Gera log da tentativa mal sucedida                                        |
+| -                                     | 3. Bloqueia o acesso do operador ao sistema                                  |
+| -                                     | 4. Notifica o administrador do sistema                                       |
+| ***FLUXOS ALTERNATIVOS*** |
+| Código | Descrição                                                                 |
+| A1     | O sistema pode solicitar autenticação com fator adicional antes do bloqueio definitivo. |
+| A2     | O operador pode tentar redefinir a senha antes de atingir o limite de tentativas. |
+| ***FLUXOS DE EXCEÇÃO*** |
+| Código | Descrição                                                                 |
+| E1     | Falha no registro de logs pode impedir rastreabilidade do bloqueio.       |
+| E2     | Sistema não detecta corretamente o número de falhas e não executa o bloqueio. |
+| ***RESTRIÇÕES E VALIDAÇÕES*** |- O sistema deve registrar todas as tentativas de autenticação.<br>- Deve haver um número máximo de tentativas permitido (ex: 3).<br>- O bloqueio deve ser reversível apenas por administradores com credenciais válidas.<br>- Notificações devem ser geradas para administradores. |
+
 
 # Diagrama de Sequência
 
