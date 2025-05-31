@@ -5,11 +5,6 @@
 <font size="+12"><center>
 
 **Drone Bélico 🛩️**
-</center></font>
-
->*Observação 1: A estrutura inicial deste documento é só um exemplo. O seu grupo deverá alterar esta estrutura de acordo com o que está sendo solicitado na disciplina.*
-
->*Observação 2: O índice abaixo não precisa ser editado se você utilizar o Visual Studio Code com a extensão **Markdown All in One**. Essa extensão atualiza o índice automaticamente quando o arquivo é salvo.*
 
 **Conteúdo**
 
@@ -861,8 +856,12 @@ Os requisitos não funcionais garantem qualidade e confiabilidade do sistema:
 # Referências
 
 https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-sequencia-uml
+
 https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-classe-uml
+
 https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-implementacao-uml
+
 https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-maquina-de-estados-uml
+
 https://www.inf.ufpr.br/silvia/ES/projeto/aulas/aula16.pdf
 
