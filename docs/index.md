@@ -848,7 +848,7 @@ Os requisitos não funcionais garantem qualidade e confiabilidade do sistema:
 
 # Diagrama de Classes
 
-*&lt;Diagrama de relacionamento entre classes para os seus atributos e operações&gt;*
+![Diagrama de Classes](https://github.com/grupo4G/UML-01-FCI/blob/ac4d7db8618849d3345d73aec9798e688954bcf4/docs/img/umlClasses.jpg)
 
 # Diagrama de Estados
 
