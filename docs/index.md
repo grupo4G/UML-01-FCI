@@ -856,7 +856,7 @@ Os requisitos não funcionais garantem qualidade e confiabilidade do sistema:
 
 # Diagrama de Implantação
 
-*&lt;Diagrama para exibir o relacionamento de hardware e software no projeto&gt;*
+![Diagrama de Implementação](https://github.com/grupo4G/UML-01-FCI/blob/6358403a90841412819a998c4593acfaf971c985/docs/img/diagrama_implantacao.png)
 
 # Referências
 
