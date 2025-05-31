@@ -860,4 +860,9 @@ Os requisitos não funcionais garantem qualidade e confiabilidade do sistema:
 
 # Referências
 
-*&lt;Lista de referências&gt;*
+https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-sequencia-uml
+https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-classe-uml
+https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-implementacao-uml
+https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-maquina-de-estados-uml
+https://www.inf.ufpr.br/silvia/ES/projeto/aulas/aula16.pdf
+
