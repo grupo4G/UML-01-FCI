@@ -844,7 +844,7 @@ Os requisitos não funcionais garantem qualidade e confiabilidade do sistema:
 
 # Diagrama de Sequência
 
-*&lt;Diagrama de ordem e interação dos objetos&gt;*
+![Diagrama de Sequencia](https://github.com/grupo4G/UML-01-FCI/blob/c589dd50bb9ec9b30dce522fcd47618a159c0d34/docs/img/umlSequencia.JPG)
 
 # Diagrama de Classes
 
