@@ -847,7 +847,7 @@ Os requisitos não funcionais garantem qualidade e confiabilidade do sistema:
 
 # Diagrama de Estados
 
-![Diagrama de Estados](https://github.com/grupo4G/UML-01-FCI/blob/45735bb2be1b76deb9b43be7c5a558608cf6f881/docs/img/diagramaDeEstados.jpg)
+![Diagrama de Estados](https://github.com/grupo4G/UML-01-FCI/blob/b4d140573e0724b0e2cd9e4a4b56e572a3753550/docs/img/DiagramaEstados.JPG)
 
 # Diagrama de Implantação
 
